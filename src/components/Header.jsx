@@ -6,7 +6,7 @@ export default function Header({ onCartClick }) {
   return (
     <header className="header">
       <div className="brand">
-      <img src="/logo.png" alt="DzStore logo" className="logo" />
+      <img src={`${import.meta.env.BASE_URL}logo.png`} alt="DzStore logo" className="logo" />
         <h1>DzStore</h1>
       </div>
       <button className="btn cart-btn" onClick={onCartClick}>
