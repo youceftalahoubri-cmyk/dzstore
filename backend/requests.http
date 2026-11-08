@@ -1,0 +1,30 @@
+### Handy requests for the VS Code "REST Client" extension (or copy them into Thunder Client / Postman)
+@host = http://localhost:3000
+
+### Register
+POST {{host}}/api/auth/register
+Content-Type: application/json
+
+{ "name": "Amine", "email": "amine@example.com", "password": "secret123" }
+
+### Login (copy the token below)
+POST {{host}}/api/auth/login
+Content-Type: application/json
+
+{ "email": "amine@example.com", "password": "secret123" }
+
+### Products (public)
+GET {{host}}/api/products
+
+### Create product (replace TOKEN)
+POST {{host}}/api/products
+Content-Type: application/json
+Authorization: Bearer TOKEN
+
+{ "name": "Test phone", "description": "Demo", "price": 199.9, "category": "Electronics", "imageUrl": "https://placehold.co/400", "stock": 12 }
+
+### Protected request without token -> 401
+DELETE {{host}}/api/products/000000000000000000000000
+
+### Invalid ID -> 400
+GET {{host}}/api/products/abc
